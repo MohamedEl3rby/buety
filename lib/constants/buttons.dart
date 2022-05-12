@@ -85,65 +85,136 @@ class TextF extends StatelessWidget {
 }
 
 class ContainerDetails extends StatelessWidget {
-  const ContainerDetails({Key? key}) : super(key: key);
+  final String address;
+  final String phoneNumber;
+  final String phoneNumber2;
+  final String mail;
+  const ContainerDetails({
+    Key? key,
+    required this.address,
+    required this.phoneNumber,
+    required this.phoneNumber2,
+    required this.mail,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: MediaQuery.of(context).size.height * .4,
-      width: MediaQuery.of(context).size.width * .8,
-      decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: [
-            Color(0xffC6A074),
-            Color(0xffD8B894),
+    return Card(
+      elevation: 10,
+      child: Container(
+        height: MediaQuery.of(context).size.height * .38,
+        width: MediaQuery.of(context).size.width * .8,
+        decoration: BoxDecoration(
+          gradient: const LinearGradient(
+            colors: [
+              Color(0xffC6A074),
+              Color(0xffD8B894),
+            ],
+          ),
+          borderRadius: BorderRadius.circular(5.0),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // SizedBox(
+                  //   height: MediaQuery.of(context).size.height * .015,
+                  // ),
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.location_on,
+                        size: 30,
+                        color: Color(0xffFFFFFF),
+                      ),
+                      const SizedBox(width: 5),
+                      Text(
+                        address,
+                        //
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 17,
+                        ),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * .02,
+                  ),
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.local_phone,
+                        size: 30,
+                        color: Color(0xffFFFFFF),
+                      ),
+                      const SizedBox(width: 5),
+                      Text(
+                        phoneNumber,
+                        //
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 17,
+                        ),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * .02,
+                  ),
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.phone_android,
+                        size: 30,
+                        color: Color(0xffFFFFFF),
+                      ),
+                      const SizedBox(width: 5),
+                      Text(
+                        phoneNumber2,
+                        //
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 17,
+                        ),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * .02,
+                  ),
+                  Row(
+                    children: [
+                      const Icon(
+                        Icons.mail,
+                        size: 30,
+                        color: Color(0xffFFFFFF),
+                      ),
+                      const SizedBox(width: 5),
+                      Text(
+                        mail,
+                        //
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w400,
+                          fontSize: 17,
+                        ),
+                      )
+                    ],
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
-        borderRadius: BorderRadius.circular(5.0),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Column(
-              children: [
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * .03,
-                ),
-                const Icon(
-                  Icons.location_on,
-                  size: 40,
-                  color: Color(0xffFFFFFF),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * .04,
-                ),
-                const Icon(
-                  Icons.local_phone,
-                  size: 40,
-                  color: Color(0xffFFFFFF),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * .04,
-                ),
-                const Icon(
-                  Icons.phone_android,
-                  size: 40,
-                  color: Color(0xffFFFFFF),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * .04,
-                ),
-                const Icon(
-                  Icons.mail,
-                  size: 40,
-                  color: Color(0xffFFFFFF),
-                ),
-              ],
-            ),
-          ),
-        ],
       ),
     );
   }

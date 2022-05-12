@@ -100,14 +100,29 @@ class HomeView extends StatelessWidget {
                     TabBarCubit.get(context).changeIndex(4);
                   },
                 ),
-                const Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: Button(text: 'Why Us'),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Button(
+                    text: 'Why Us',
+                    onPressed: () {
+                      TabBarCubit.get(context).changeIndex(1);
+                    },
+                  ),
                 ),
-                const Button(text: 'Al Jamila Hospital'),
-                const Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: Button(text: 'Our Centers'),
+                Button(
+                  text: 'Al Jamila Hospital',
+                  onPressed: () {
+                    TabBarCubit.get(context).changeIndex(5);
+                  },
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Button(
+                    text: 'Our Centers',
+                    onPressed: () {
+                      TabBarCubit.get(context).changeIndex(2);
+                    },
+                  ),
                 ),
                 Button(
                   text: 'Contact Us',

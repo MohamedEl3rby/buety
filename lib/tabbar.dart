@@ -45,17 +45,26 @@ class TabbBarView extends StatelessWidget {
                         }),
                     dividerTabBarLayout(context),
                     containerTabBarLayout(
-                        image: AssetPath.question, text: 'Why Us'),
-                    dividerTabBarLayout(context),
-                    containerTabBarLayout(
-                        image: AssetPath.hospital, text: 'Our Centers'),
-                    dividerTabBarLayout(context),
-                    containerTabBarLayout(
-                        image: AssetPath.contact,
-                        text: 'Contact Us',
+                        image: AssetPath.question,
+                        text: 'Why Us',
                         onTap: () {
-                          TabBarCubit.get(context).changeIndex(3);
+                          TabBarCubit.get(context).changeIndex(1);
                         }),
+                    dividerTabBarLayout(context),
+                    containerTabBarLayout(
+                        image: AssetPath.hospital,
+                        text: 'Our Centers',
+                        onTap: () {
+                          TabBarCubit.get(context).changeIndex(2);
+                        }),
+                    dividerTabBarLayout(context),
+                    containerTabBarLayout(
+                      image: AssetPath.contact,
+                      text: 'Contact Us',
+                      onTap: () {
+                        TabBarCubit.get(context).changeIndex(3);
+                      },
+                    ),
                   ],
                 ),
               ),
