@@ -27,6 +27,7 @@ class AssetPath {
   static const String image70 = "images/f29863d6b1c105206ce9029e8d65ad76.png";
   static const String image2 = "images/Image 2.png";
   static const String imageX = "images/aa965f989f96cc13f336a366dfc1e33a.png";
+  static const String articleMainPhoto = "images/articleMainPhoto.png";
   static const String image31 = "images/Image31.png";
   static const String image30 = "images/Image30.png";
   static const String image32 = "images/Image32.png";

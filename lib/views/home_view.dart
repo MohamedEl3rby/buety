@@ -62,20 +62,49 @@ class HomeView extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Button(text: 'Breast Surgeries'),
-                const Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: Button(text: 'Face Surgeries'),
+                Button(
+                  text: 'Breast Surgeries',
+                  onPressed: () {
+                    TabBarCubit.get(context).changeIndex(6);
+                  },
                 ),
-                const Button(text: 'Genital Cosmetic Surger'),
-                const Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: Button(text: 'Cosmetic Without Surgery'),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Button(
+                    text: 'Face Surgeries',
+                    onPressed: () {
+                      TabBarCubit.get(context).changeIndex(7);
+                    },
+                  ),
                 ),
-                const Button(text: 'Cosmetic Surgeries for Men'),
-                const Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: Button(text: 'Body Cosmetic Surgeries'),
+                Button(
+                  text: 'Genital Cosmetic Surger',
+                  onPressed: () {
+                    TabBarCubit.get(context).changeIndex(8);
+                  },
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Button(
+                    text: 'Cosmetic Without Surgery',
+                    onPressed: () {
+                      TabBarCubit.get(context).changeIndex(9);
+                    },
+                  ),
+                ),
+                Button(
+                  text: 'Cosmetic Surgeries For Men',
+                  onPressed: () {
+                    TabBarCubit.get(context).changeIndex(10);
+                  },
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Button(
+                      text: 'Body Cosmetic Surgeries',
+                      onPressed: () {
+                        TabBarCubit.get(context).changeIndex(11);
+                      }),
                 ),
                 Padding(
                   padding: const EdgeInsets.only(top: 20.0, bottom: 25.0),

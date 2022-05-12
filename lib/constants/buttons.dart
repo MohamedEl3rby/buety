@@ -17,8 +17,8 @@ class Button extends StatelessWidget {
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(25.0)),
             child: Container(
-              height: MediaQuery.of(context).size.height * .07,
-              width: MediaQuery.of(context).size.width * .85,
+              height: MediaQuery.of(context).size.height * .075,
+              width: MediaQuery.of(context).size.width * .9,
               decoration: BoxDecoration(
                 color: const Color(0xffC6A074),
                 borderRadius: BorderRadius.circular(25.0),
@@ -39,10 +39,10 @@ class Button extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: (MediaQuery.of(context).size.height * .07) / 1.9,
+            top: (MediaQuery.of(context).size.height * .075) / 1.9,
             child: Container(
               width: (MediaQuery.of(context).size.width * .85) / 1.5,
-              height: (MediaQuery.of(context).size.height * .07) / 2,
+              height: (MediaQuery.of(context).size.height * .075) / 2,
               decoration: const BoxDecoration(
                 color: Colors.white24,
                 borderRadius: BorderRadius.only(
