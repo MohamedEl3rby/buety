@@ -16,3 +16,16 @@ Widget articleText({required String header}) => Text(
         fontWeight: FontWeight.w400,
       ),
     );
+Widget articleHeader({required String header}) => Text(
+      header,
+      style: const TextStyle(
+        fontSize: 16,
+        color: Color(0xff2B3549),
+        fontWeight: FontWeight.w600,
+      ),
+    );
+Widget infoText({required String header}) => Text(
+      header,
+      style: const TextStyle(
+          color: Color(0xff2B3549), fontSize: 18, fontWeight: FontWeight.w400),
+    );

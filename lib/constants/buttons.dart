@@ -2,56 +2,65 @@ import 'package:flutter/material.dart';
 
 class Button extends StatelessWidget {
   final String text;
-  const Button({Key? key, required this.text}) : super(key: key);
+  final void Function()? onPressed;
+  const Button({Key? key, required this.text, this.onPressed})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Card(
-          elevation: 15,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0)),
-          child: Container(
-            height: MediaQuery.of(context).size.height * .07,
-            width: MediaQuery.of(context).size.width * .85,
-            decoration: BoxDecoration(
-              color: const Color(0xffC6A074),
-              borderRadius: BorderRadius.circular(25.0),
-            ),
-            child: TextButton(
-              style: TextButton.styleFrom(
-                padding: const EdgeInsets.all(15.0),
-                primary: Colors.white,
-                textStyle:
-                    const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+    return GestureDetector(
+      onTap: onPressed,
+      child: Stack(
+        children: [
+          Card(
+            elevation: 15,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(25.0)),
+            child: Container(
+              height: MediaQuery.of(context).size.height * .07,
+              width: MediaQuery.of(context).size.width * .85,
+              decoration: BoxDecoration(
+                color: const Color(0xffC6A074),
+                borderRadius: BorderRadius.circular(25.0),
               ),
-              onPressed: () {},
-              child: Text(text),
-            ),
-          ),
-        ),
-        Positioned(
-          top: (MediaQuery.of(context).size.height * .07) / 1.9,
-          child: Container(
-            width: (MediaQuery.of(context).size.width * .85) / 1.5,
-            height: (MediaQuery.of(context).size.height * .07) / 2,
-            decoration: const BoxDecoration(
-              color: Colors.white30,
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(25.0),
-                topRight: Radius.circular(10.0),
+              child: TextButton(
+                style: TextButton.styleFrom(
+                  padding: const EdgeInsets.all(15.0),
+                  primary: Colors.white,
+                  textStyle: const TextStyle(
+                      fontSize: 25, fontWeight: FontWeight.bold),
+                ),
+                onPressed: onPressed,
+                child: Text(
+                  text,
+                  style: const TextStyle(color: Colors.white),
+                ),
               ),
             ),
           ),
-        )
-      ],
+          Positioned(
+            top: (MediaQuery.of(context).size.height * .07) / 1.9,
+            child: Container(
+              width: (MediaQuery.of(context).size.width * .85) / 1.5,
+              height: (MediaQuery.of(context).size.height * .07) / 2,
+              decoration: const BoxDecoration(
+                color: Colors.white24,
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(25.0),
+                  topRight: Radius.circular(10.0),
+                ),
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
 
 class TextF extends StatelessWidget {
-  const TextF({Key? key}) : super(key: key);
+  final String hint;
+  const TextF({Key? key, required this.hint}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -61,11 +70,11 @@ class TextF extends StatelessWidget {
         decoration: BoxDecoration(
           border: Border.all(color: Colors.grey),
         ),
-        child: const Padding(
-          padding: EdgeInsets.only(left: 15.0),
+        child: Padding(
+          padding: const EdgeInsets.only(left: 15.0),
           child: TextField(
             decoration: InputDecoration(
-              hintText: "Full Name",
+              hintText: hint,
               border: InputBorder.none,
             ),
           ),

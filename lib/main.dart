@@ -1,19 +1,27 @@
+import 'package:bueaty/cubits/tabbar_cubit.dart';
 import 'package:bueaty/views/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.black,
       statusBarIconBrightness: Brightness.light // status bar color
-      )); // status bar color
-  runApp(const MyApp());
+      ));
+
+  runApp(
+    BlocProvider(
+      create: (BuildContext context) => TabBarCubit(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

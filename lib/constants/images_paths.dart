@@ -4,6 +4,9 @@ class AssetPath {
   static const String stethoscope = "images/stethoscope@2x.png";
   static const String hospital = "images/hospital@2x.png";
   static const String homeDoctor = "images/Rectangle.png";
+  static const String infoDoctor = "images/Group.png";
+  static const String infoDoctorCert = "images/Image 29.png";
+  static const String infoDoctorSpe = "images/Image33.png";
   static const String image22 = "images/Image22.png";
   static const String question = "images/question@2x.png";
   static const String rectangle = "images/Rectangle2.png";
@@ -22,9 +25,9 @@ class AssetPath {
   static const String logoface = "images/logoface.png";
   static const String logoinsta = "images/logoinsta.png";
   static const String logotwet = "images/logotwet.png";
-  static const String world = "images/world.png";
-  static const String message = "images/message.png";
-  static const String mobilelogo = "images/mobilelogo.png";
+  static const String world = "images/Web.png";
+  static const String message = "images/Messages.png";
+  static const String mobilelogo = "images/Mobile.png";
   static const String image110 = "images/Image110.png";
   static const String image109 = "images/Image109.png";
   static const String image108 = "images/Image108.png";
