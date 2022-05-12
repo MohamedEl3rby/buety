@@ -1,9 +1,11 @@
-class AssetPath{
-  static const String contact = "images/contact-mail.png";
-  static const String stethoscope = "images/stethoscope.png";
-  static const String hospital = "images/hospital.png";
+class AssetPath {
+  static const String splashImage = "images/Image 1.png";
+  static const String contact = "images/contact-mail@2x.png";
+  static const String stethoscope = "images/stethoscope@2x.png";
+  static const String hospital = "images/hospital@2x.png";
+  static const String homeDoctor = "images/Rectangle.png";
   static const String image22 = "images/Image22.png";
-  static const String question = "images/question.png";
+  static const String question = "images/question@2x.png";
   static const String rectangle = "images/Rectangle2.png";
   static const String image23 = "images/Image23.png";
   static const String image24 = "images/Image24.png";
@@ -42,6 +44,4 @@ class AssetPath{
   static const String doc2 = "images/doc2.png";
   static const String logohospital = "images/logohospital.png";
   static const String image1000 = "images/Image1000.png";
-
-
 }

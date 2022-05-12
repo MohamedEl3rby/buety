@@ -1,19 +1,12 @@
-import 'package:bueaty/fivth_screen.dart';
-import 'package:bueaty/fourth_screen.dart';
-import 'package:bueaty/second_screen.dart';
-import 'package:bueaty/seven_Screen.dart';
-import 'package:bueaty/sixth_screen.dart';
-import 'package:bueaty/third_screen.dart';
-import 'package:bueaty/thrtine_Screen.dart';
+import 'package:bueaty/views/splash_view.dart';
 import 'package:flutter/material.dart';
-
-import 'about_us.dart';
-import 'contact_us.dart';
-import 'first_screen.dart';
-import 'nine_screen.dart';
-import 'our_centers.dart';
+import 'package:flutter/services.dart';
 
 void main() {
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarColor: Colors.black,
+      statusBarIconBrightness: Brightness.light // status bar color
+      )); // status bar color
   runApp(const MyApp());
 }
 
@@ -27,9 +20,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        backgroundColor:const Color(0xffFFFFFF),
-        buttonTheme:
-        const ButtonThemeData(buttonColor: Color(0xffC6A074)),
+        backgroundColor: const Color(0xffFFFFFF),
+        buttonTheme: const ButtonThemeData(buttonColor: Color(0xffC6A074)),
         bottomNavigationBarTheme: const BottomNavigationBarThemeData(
           showSelectedLabels: true,
           showUnselectedLabels: true,
@@ -39,9 +31,7 @@ class MyApp extends StatelessWidget {
           selectedItemColor: Color(0xffC69F73),
         ),
       ),
-      home:const FirstScreen(),
+      home: const SplashView(),
     );
   }
 }
-
-
