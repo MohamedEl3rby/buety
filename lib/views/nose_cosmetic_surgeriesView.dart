@@ -3,6 +3,7 @@ import 'package:bueaty/cubits/tabbar_cubit.dart';
 import 'package:flutter/material.dart';
 
 import '../constants/images_paths.dart';
+import '../widgets/header_image_for_tabbar_items.dart';
 
 class NoseCosmeticSurgeriesView extends StatelessWidget {
   const NoseCosmeticSurgeriesView({Key? key}) : super(key: key);
@@ -11,7 +12,8 @@ class NoseCosmeticSurgeriesView extends StatelessWidget {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        return TabBarCubit.get(context).changeIndex(0);
+        Navigator.of(context).pop();
+        return true;
       },
       child: Scaffold(
         backgroundColor: Theme.of(context).backgroundColor,
@@ -19,12 +21,7 @@ class NoseCosmeticSurgeriesView extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(
-                AssetPath.articleMainPhoto,
-                height: MediaQuery.of(context).size.height * .4,
-                width: MediaQuery.of(context).size.width,
-                fit: BoxFit.cover,
-              ),
+              headerImageForInnerItems(AssetPath.articleMainPhoto, context),
               const Padding(
                 padding: EdgeInsets.all(paddingValue),
                 child: Center(

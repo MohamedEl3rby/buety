@@ -60,13 +60,7 @@ class TabbBarView extends StatelessWidget {
               ],
             ),
           ),
-          body: Stack(
-            alignment: Alignment(0.2, 0.2),
-            children: [
-              tabBarBodyWidget(TabBarCubit.get(context).currentIndex),
-              ////
-            ],
-          ),
+          body: tabBarBodyWidget(TabBarCubit.get(context).currentIndex),
         );
       },
     );
@@ -94,7 +88,9 @@ Widget containerTabBarLayout({
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               image: DecorationImage(
-                image: AssetImage(image),
+                image: AssetImage(
+                  image,
+                ),
               ),
             ),
           ),

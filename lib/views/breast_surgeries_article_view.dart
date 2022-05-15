@@ -1,6 +1,7 @@
 import 'package:bueaty/constants/constant.dart';
 import 'package:flutter/material.dart';
 import '../constants/images_paths.dart';
+import '../widgets/header_image_for_tabbar_items.dart';
 
 class BreastSurgeriesArticleView extends StatelessWidget {
   const BreastSurgeriesArticleView({Key? key}) : super(key: key);
@@ -18,12 +19,13 @@ class BreastSurgeriesArticleView extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(
-                AssetPath.articleMainPhoto,
-                height: MediaQuery.of(context).size.height * .4,
-                width: MediaQuery.of(context).size.width,
-                fit: BoxFit.cover,
-              ),
+              // Image.asset(
+              //   AssetPath.articleMainPhoto,
+              //   height: MediaQuery.of(context).size.height * .4,
+              //   width: MediaQuery.of(context).size.width,
+              //   fit: BoxFit.cover,
+              // ),
+              headerImageForInnerItems(AssetPath.articleMainPhoto, context),
               const Padding(
                 padding: EdgeInsets.all(paddingValue),
                 child: Text(

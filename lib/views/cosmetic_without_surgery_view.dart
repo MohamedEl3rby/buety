@@ -1,4 +1,5 @@
 import 'package:bueaty/cubits/tabbar_cubit.dart';
+import 'package:bueaty/widgets/header_image_for_tabbar_items.dart';
 import 'package:flutter/material.dart';
 
 import '../constants/constant.dart';
@@ -11,7 +12,8 @@ class CosmeticWithoutSurgeryView extends StatelessWidget {
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () async {
-        return TabBarCubit.get(context).changeIndex(0);
+        Navigator.of(context).pop();
+        return true;
       },
       child: Scaffold(
         backgroundColor: Theme.of(context).backgroundColor,
@@ -19,12 +21,13 @@ class CosmeticWithoutSurgeryView extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(
-                AssetPath.articleMainPhoto,
-                height: MediaQuery.of(context).size.height * .4,
-                width: MediaQuery.of(context).size.width,
-                fit: BoxFit.cover,
-              ),
+              headerImageForInnerItems(AssetPath.articleMainPhoto, context),
+              // Image.asset(
+              //   AssetPath.articleMainPhoto,
+              //   height: MediaQuery.of(context).size.height * .4,
+              //   width: MediaQuery.of(context).size.width,
+              //   fit: BoxFit.cover,
+              // ),
               const Padding(
                 padding: EdgeInsets.all(paddingValue),
                 child: Text(
