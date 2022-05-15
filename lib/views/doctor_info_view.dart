@@ -3,6 +3,7 @@ import 'package:bueaty/states/tabbar_states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../constants/constant.dart';
 import '../constants/images_paths.dart';
 import '../widgets/articles_divider.dart';
 import '../widgets/my_text_widget.dart';
@@ -34,7 +35,7 @@ class DoctorInfoView extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(paddingValue),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -59,7 +60,7 @@ class DoctorInfoView extends StatelessWidget {
                   ),
                   const SizedBox(height: 30),
                   Padding(
-                    padding: const EdgeInsets.all(5.0),
+                    padding: const EdgeInsets.all(paddingValue),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -86,7 +87,7 @@ class DoctorInfoView extends StatelessWidget {
                   articlesDivider(),
                   const Center(
                     child: Padding(
-                      padding: EdgeInsets.all(8.0),
+                      padding: EdgeInsets.all(paddingValue),
                       child: Text(
                         "Professor Hossam\n Abol Atta ",
                         textAlign: TextAlign.center,
@@ -140,7 +141,7 @@ class DoctorInfoView extends StatelessWidget {
                     ],
                   ),
                   const Padding(
-                    padding: EdgeInsets.all(8.0),
+                    padding: EdgeInsets.all(paddingValue),
                     child: Text(
                       "Prof. Daniel Marshak said that “Professor Hossam AbolAtta worked as my first assistant at Necker Hospital and during his work, he showed a great knowledge in the field of cosmetic surgery and a great deal of wisdom in taking medical decisions, moreover he gained a great deal of respect for his patience, knowledge and kindness when dealing with my patients. He was also very punctual and was always taking the best care of my patients.\n\nEventually I want to express my happiness to get the chance to work with him and Ihighly\nrecommend him”.",
                       style: TextStyle(
@@ -151,7 +152,7 @@ class DoctorInfoView extends StatelessWidget {
                     ),
                   ),
                   const Padding(
-                    padding: EdgeInsets.all(8.0),
+                    padding: EdgeInsets.all(paddingValue),
                     child: Text("Prof. Daniel Marshak",
                         style: TextStyle(
                             color: Color(0xff2B3549), fontSize: 16.0)),

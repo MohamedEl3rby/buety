@@ -2,6 +2,7 @@ import 'package:bueaty/cubits/tabbar_cubit.dart';
 import 'package:flutter/material.dart';
 
 import '../constants/buttons.dart';
+import '../constants/constant.dart';
 import '../constants/images_paths.dart';
 
 class OurCentersView extends StatelessWidget {
@@ -26,7 +27,7 @@ class OurCentersView extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
               const Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(paddingValue),
                 child: Text(
                   "A group of centers and hospitals Prof. Dr. Hossam Abol Atta",
                   style: TextStyle(
@@ -37,7 +38,7 @@ class OurCentersView extends StatelessWidget {
                 ),
               ),
               const Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(paddingValue),
                 child: Text(
                   "While cosmetic surgery is necessary and not a luxury, it is considered a step to choose the surgeon and the appropriate center one of the most important steps in the search for beauty if not the most important. With the increasing number of cosmetic surgeries, some centers and doctors have taken their various expertise and specialization to intensify advertising and marketing for profit without considering the extent of customer satisfaction and achieving their ambitions. Therefore, we at - Hossam Abou El Atta Hospitals and Centers - we guarantee you (God willing) the highest standards of quality, efficiency and effectiveness as we are always working and continuity to keep up with the latest developments in the world of plastic surgery.",
                   style: TextStyle(

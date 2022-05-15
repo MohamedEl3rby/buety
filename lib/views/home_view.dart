@@ -1,4 +1,5 @@
 import 'package:bueaty/constants/buttons.dart';
+import 'package:bueaty/constants/constant.dart';
 import 'package:bueaty/cubits/tabbar_cubit.dart';
 import 'package:bueaty/states/tabbar_states.dart';
 import 'package:bueaty/tabbar.dart';
@@ -7,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../constants/images_paths.dart';
+import '../widgets/drawer_widget.dart';
+import '../widgets/header_image_for_tabbar_items.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -16,19 +19,27 @@ class HomeView extends StatelessWidget {
       listener: (context, states) {},
       builder: (context, states) {
         return Scaffold(
+          drawer: drawerWidget(context),
           backgroundColor: Theme.of(context).backgroundColor,
           body: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Image.asset(
+                headerImageForTabbaritems(
                   AssetPath.homeDoctor,
-                  fit: BoxFit.cover,
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height * .4,
+                  context,
+                  () {
+                    Scaffold.of(context).openDrawer();
+                  },
                 ),
+                // Image.asset(
+                //   AssetPath.homeDoctor,
+                //   fit: BoxFit.cover,
+                //   width: MediaQuery.of(context).size.width,
+                //   height: MediaQuery.of(context).size.height * .4,
+                // ),
                 Padding(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(paddingValue),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -168,7 +179,7 @@ class HomeView extends StatelessWidget {
                   thickness: 10.0,
                 ),
                 const Padding(
-                  padding: EdgeInsets.all(8.0),
+                  padding: EdgeInsets.all(paddingValue),
                   child: Text(
                     "Beauty is an important aspect of modern life. People today not only want to feel good inside, they also want to look good outside Maybe you are considering enhancing your breasts or your buttocks, or getting rid of that excess of fat, or improving your nose shape, or give a fresher look to your face. Maybe this is too expensive in your country.Or just you look for privacy and discretion. Maybe you are considering having this surgery abroad, but with safety and confidence. ENTER and know all what you have to know about safe and affordable plastic surgery!!",
                     style: TextStyle(

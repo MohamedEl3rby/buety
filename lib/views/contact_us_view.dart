@@ -3,6 +3,7 @@ import 'package:bueaty/widgets/my_text_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../constants/buttons.dart';
+import '../constants/constant.dart';
 import '../constants/images_paths.dart';
 
 class ContactUsView extends StatelessWidget {
@@ -129,7 +130,7 @@ class ContactUsView extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(paddingValue),
                 child: Container(
                   width: MediaQuery.of(context).size.width * .86,
                   decoration: const BoxDecoration(
@@ -138,7 +139,7 @@ class ContactUsView extends StatelessWidget {
                   ),
                   child: TextButton(
                     style: TextButton.styleFrom(
-                      padding: const EdgeInsets.all(15.0),
+                      padding: const EdgeInsets.all(paddingValue),
                       primary: Colors.white,
                       textStyle: const TextStyle(fontSize: 16),
                     ),

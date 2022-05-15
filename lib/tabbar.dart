@@ -14,60 +14,57 @@ class TabbBarView extends StatelessWidget {
       listener: (context, states) {},
       builder: (context, states) {
         return Scaffold(
-          body: Stack(
-            alignment: Alignment.bottomCenter,
-            children: [
-              tabBarBodyWidget(TabBarCubit.get(context).currentIndex),
-              Container(
-                width: double.infinity,
-                height: MediaQuery.of(context).size.height * 0.09,
-                decoration: const BoxDecoration(
-                  color: Color(0xff2B3549),
-                  border: Border(
-                    top: BorderSide(
-                      width: 5.0,
-                      color: Color(0xffC69F73),
-                    ),
-                    // bottom: BorderSide(
-                    //   width: 5.0,
-                    //   color: Color(0xffC69F73),
-                    // ),
-                  ),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    containerTabBarLayout(
-                        image: AssetPath.stethoscope,
-                        text: 'About Prof.',
-                        onTap: () {
-                          TabBarCubit.get(context).changeIndex(0);
-                        }),
-                    dividerTabBarLayout(context),
-                    containerTabBarLayout(
-                        image: AssetPath.question,
-                        text: 'Why Us',
-                        onTap: () {
-                          TabBarCubit.get(context).changeIndex(1);
-                        }),
-                    dividerTabBarLayout(context),
-                    containerTabBarLayout(
-                        image: AssetPath.hospital,
-                        text: 'Our Centers',
-                        onTap: () {
-                          TabBarCubit.get(context).changeIndex(2);
-                        }),
-                    dividerTabBarLayout(context),
-                    containerTabBarLayout(
-                      image: AssetPath.contact,
-                      text: 'Contact Us',
-                      onTap: () {
-                        TabBarCubit.get(context).changeIndex(3);
-                      },
-                    ),
-                  ],
+          bottomNavigationBar: Container(
+            width: double.infinity,
+            height: MediaQuery.of(context).size.height * 0.09,
+            decoration: const BoxDecoration(
+              color: Color(0xff2B3549),
+              border: Border(
+                top: BorderSide(
+                  width: 5.0,
+                  color: Color(0xffC69F73),
                 ),
               ),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                containerTabBarLayout(
+                    image: AssetPath.stethoscope,
+                    text: 'About Prof.',
+                    onTap: () {
+                      TabBarCubit.get(context).changeIndex(0);
+                    }),
+                dividerTabBarLayout(context),
+                containerTabBarLayout(
+                    image: AssetPath.question,
+                    text: 'Why Us',
+                    onTap: () {
+                      TabBarCubit.get(context).changeIndex(1);
+                    }),
+                dividerTabBarLayout(context),
+                containerTabBarLayout(
+                    image: AssetPath.hospital,
+                    text: 'Our Centers',
+                    onTap: () {
+                      TabBarCubit.get(context).changeIndex(2);
+                    }),
+                dividerTabBarLayout(context),
+                containerTabBarLayout(
+                  image: AssetPath.contact,
+                  text: 'Contact Us',
+                  onTap: () {
+                    TabBarCubit.get(context).changeIndex(3);
+                  },
+                ),
+              ],
+            ),
+          ),
+          body: Stack(
+            alignment: Alignment(0.2, 0.2),
+            children: [
+              tabBarBodyWidget(TabBarCubit.get(context).currentIndex),
+              ////
             ],
           ),
         );
