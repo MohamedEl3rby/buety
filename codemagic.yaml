@@ -1,0 +1,48 @@
+# Automatically generated on 2022-05-16 UTC from https://codemagic.io/app/62815ec22d98fdd1cdffc1db/settings
+# Note that this configuration is not an exact match to UI settings. Review and adjust as necessary.
+
+workflows:
+  default-workflow:
+    name: Default Workflow
+    max_build_duration: 60
+    environment:
+      vars:
+        XCODE_WORKSPACE:""
+      flutter: 2.10.2
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - flutter packages pub get
+      - find . -name "Podfile" -execdir pod install \;
+      - flutter build ios --release --no-codesign
+    artifacts:
+      - build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+      - '*.snap'
+      - build/windows/**/*.msix
+      - flutter_drive.log
+    publishing:
+      email:
+        recipients:
+          - max.farag2020@gmail.com
+  default-workflow-(copy):
+    name: Default Workflow (Copy)
+    max_build_duration: 60
+    environment:
+      flutter: 2.10.2
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - flutter packages pub get
+      - find . -name "Podfile" -execdir pod install \;
+      - flutter build ios
+    artifacts:
+      - build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+      - '*.snap'
+      - build/windows/**/*.msix
+      - flutter_drive.log
+    publishing:
+      email:
+        recipients:
+          - max.farag2020@gmail.com

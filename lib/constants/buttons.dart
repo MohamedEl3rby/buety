@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Button extends StatelessWidget {
   final String text;
   final void Function()? onPressed;
+
   const Button({Key? key, required this.text, this.onPressed})
       : super(key: key);
 
@@ -86,15 +88,18 @@ class TextF extends StatelessWidget {
 
 class ContainerDetails extends StatelessWidget {
   final String address;
-  final String phoneNumber;
-  final String phoneNumber2;
+  final List<String> phoneNumber;
+  final List<String> phoneNumber2;
   final String mail;
+  final void Function() onTapAddress;
+
   const ContainerDetails({
     Key? key,
     required this.address,
-    required this.phoneNumber,
-    required this.phoneNumber2,
     required this.mail,
+    required this.phoneNumber2,
+    required this.onTapAddress,
+    required this.phoneNumber,
   }) : super(key: key);
 
   @override
@@ -133,13 +138,16 @@ class ContainerDetails extends StatelessWidget {
                         color: Color(0xffFFFFFF),
                       ),
                       const SizedBox(width: 5),
-                      Text(
-                        address,
-                        //
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 17,
+                      GestureDetector(
+                        onTap: onTapAddress,
+                        child: Text(
+                          address,
+                          //
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 17,
+                          ),
                         ),
                       )
                     ],
@@ -155,14 +163,28 @@ class ContainerDetails extends StatelessWidget {
                         color: Color(0xffFFFFFF),
                       ),
                       const SizedBox(width: 5),
-                      Text(
-                        phoneNumber,
-                        //
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 17,
-                        ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          for (int i = 0; i < phoneNumber.length; i++)
+                            GestureDetector(
+                              onTap: () async {
+                                if (!await launchUrl(Uri.parse(
+                                    'tel:${phoneNumber[i].replaceAll('', '').replaceAll('(', '').replaceAll(')', '')}'))) {
+                                  throw 'Could not launch ';
+                                }
+                              },
+                              child: Text(
+                                phoneNumber[i],
+                                //
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 17,
+                                ),
+                              ),
+                            ),
+                        ],
                       )
                     ],
                   ),
@@ -177,14 +199,28 @@ class ContainerDetails extends StatelessWidget {
                         color: Color(0xffFFFFFF),
                       ),
                       const SizedBox(width: 5),
-                      Text(
-                        phoneNumber2,
-                        //
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 17,
-                        ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          for (int i = 0; i < phoneNumber2.length; i++)
+                            GestureDetector(
+                              onTap: () async {
+                                if (!await launchUrl(Uri.parse(
+                                    'tel:${phoneNumber2[i].replaceAll('', '').replaceAll('(', '').replaceAll(')', '')}'))) {
+                                  throw 'Could not launch ';
+                                }
+                              },
+                              child: Text(
+                                phoneNumber2[i],
+                                //
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 17,
+                                ),
+                              ),
+                            ),
+                        ],
                       )
                     ],
                   ),
@@ -199,13 +235,22 @@ class ContainerDetails extends StatelessWidget {
                         color: Color(0xffFFFFFF),
                       ),
                       const SizedBox(width: 5),
-                      Text(
-                        mail,
-                        //
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 17,
+                      GestureDetector(
+                        onTap: () async {
+                          const String _url =
+                              'mailto:dr@drhossam.com?subject=Hai&body=Hello';
+                          if (!await launchUrl(Uri.parse(_url))) {
+                            throw 'Could not launch $_url';
+                          }
+                        },
+                        child: Text(
+                          mail,
+                          //
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 17,
+                          ),
                         ),
                       )
                     ],
