@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../constants/constant.dart';
 import '../constants/images_paths.dart';
 import '../widgets/articles_divider.dart';
+import '../widgets/header_image_for_tabbar_items.dart';
 import '../widgets/my_text_widget.dart';
 
 class DoctorInfoView extends StatelessWidget {
@@ -28,12 +29,13 @@ class DoctorInfoView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   const SizedBox(height: 20),
-                  Image.asset(
-                    AssetPath.infoDoctor,
-                    height: MediaQuery.of(context).size.height * .4,
-                    width: MediaQuery.of(context).size.width,
-                    fit: BoxFit.cover,
-                  ),
+                  headerImageForInnerItems(AssetPath.infoDoctor, context),
+                  // Image.asset(
+                  //   AssetPath.infoDoctor,
+                  //   height: MediaQuery.of(context).size.height * .4,
+                  //   width: MediaQuery.of(context).size.width,
+                  //   fit: BoxFit.cover,
+                  // ),
                   Padding(
                     padding: const EdgeInsets.all(paddingValue),
                     child: Column(

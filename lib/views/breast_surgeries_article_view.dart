@@ -19,12 +19,6 @@ class BreastSurgeriesArticleView extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Image.asset(
-              //   AssetPath.articleMainPhoto,
-              //   height: MediaQuery.of(context).size.height * .4,
-              //   width: MediaQuery.of(context).size.width,
-              //   fit: BoxFit.cover,
-              // ),
               headerImageForInnerItems(AssetPath.articleMainPhoto, context),
               const Padding(
                 padding: EdgeInsets.all(paddingValue),

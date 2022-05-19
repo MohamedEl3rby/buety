@@ -4,7 +4,6 @@ import 'package:bueaty/widgets/bottom_nav_widget.dart';
 import 'package:bueaty/widgets/tabbar_body_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'constants/images_paths.dart';
 
 class TabbBarView extends StatelessWidget {
   const TabbBarView({Key? key}) : super(key: key);
@@ -32,6 +31,7 @@ Widget containerTabBarLayout({
   required String image,
   required String text,
   void Function()? onTap,
+  required bool isActive,
 }) =>
     GestureDetector(
       onTap: onTap,
@@ -43,6 +43,7 @@ Widget containerTabBarLayout({
             width: 25,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
+              color: isActive ? Colors.white38 : Colors.transparent,
               image: DecorationImage(
                 image: AssetImage(
                   image,

@@ -22,12 +22,14 @@ Widget bottomNavWidget(BuildContext context) => Container(
           containerTabBarLayout(
               image: AssetPath.stethoscope,
               text: 'About Prof.',
+              isActive: TabBarCubit.get(context).activeBody[0],
               onTap: () {
                 TabBarCubit.get(context).changeIndex(0);
               }),
           dividerTabBarLayout(context),
           containerTabBarLayout(
               image: AssetPath.question,
+              isActive: TabBarCubit.get(context).activeBody[1],
               text: 'Why Us',
               onTap: () {
                 TabBarCubit.get(context).changeIndex(1);
@@ -35,12 +37,14 @@ Widget bottomNavWidget(BuildContext context) => Container(
           dividerTabBarLayout(context),
           containerTabBarLayout(
               image: AssetPath.hospital,
+              isActive: TabBarCubit.get(context).activeBody[2],
               text: 'Our Centers',
               onTap: () {
                 TabBarCubit.get(context).changeIndex(2);
               }),
           dividerTabBarLayout(context),
           containerTabBarLayout(
+            isActive: TabBarCubit.get(context).activeBody[3],
             image: AssetPath.contact,
             text: 'Contact Us',
             onTap: () {

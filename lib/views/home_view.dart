@@ -1,8 +1,11 @@
 import 'package:bueaty/constants/buttons.dart';
 import 'package:bueaty/constants/constant.dart';
 import 'package:bueaty/cubits/tabbar_cubit.dart';
+import 'package:bueaty/shared/route_animation.dart';
 import 'package:bueaty/states/tabbar_states.dart';
 import 'package:bueaty/tabbar.dart';
+import 'package:bueaty/views/breast_surgeries_article_view.dart';
+import 'package:bueaty/views/surgeries_for_men_view.dart';
 import 'package:bueaty/widgets/my_text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,6 +13,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../constants/images_paths.dart';
 import '../widgets/drawer_widget.dart';
 import '../widgets/header_image_for_tabbar_items.dart';
+import 'body_cosmetic_surgeries_view.dart';
+import 'cosmetic_without_surgery_view.dart';
+import 'doctor_info_view.dart';
+import 'genital_cosmetic_surgery_view.dart';
+import 'hospital_view.dart';
+import 'nose_cosmetic_surgeriesView.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -32,12 +41,6 @@ class HomeView extends StatelessWidget {
                     Scaffold.of(context).openDrawer();
                   },
                 ),
-                // Image.asset(
-                //   AssetPath.homeDoctor,
-                //   fit: BoxFit.cover,
-                //   width: MediaQuery.of(context).size.width,
-                //   height: MediaQuery.of(context).size.height * .4,
-                // ),
                 Padding(
                   padding: const EdgeInsets.all(paddingValue),
                   child: Column(
@@ -76,7 +79,12 @@ class HomeView extends StatelessWidget {
                 Button(
                   text: 'Breast Surgeries',
                   onPressed: () {
-                    TabBarCubit.get(context).changeIndex(6);
+                    Navigator.of(context).push(
+                      RouteAnimation(
+                        page: const BreastSurgeriesArticleView(),
+                      ),
+                    );
+                    // TabBarCubit.get(context).changeIndex(6);
                   },
                 ),
                 Padding(
@@ -84,14 +92,22 @@ class HomeView extends StatelessWidget {
                   child: Button(
                     text: 'Face Surgeries',
                     onPressed: () {
-                      TabBarCubit.get(context).changeIndex(7);
+                      Navigator.of(context).push(
+                        RouteAnimation(
+                          page: const NoseCosmeticSurgeriesView(),
+                        ),
+                      );
                     },
                   ),
                 ),
                 Button(
                   text: 'Genital Cosmetic Surger',
                   onPressed: () {
-                    TabBarCubit.get(context).changeIndex(8);
+                    Navigator.of(context).push(
+                      RouteAnimation(
+                        page: const GenitalCosmeticSurgeryView(),
+                      ),
+                    );
                   },
                 ),
                 Padding(
@@ -99,14 +115,22 @@ class HomeView extends StatelessWidget {
                   child: Button(
                     text: 'Cosmetic Without Surgery',
                     onPressed: () {
-                      TabBarCubit.get(context).changeIndex(9);
+                      Navigator.of(context).push(
+                        RouteAnimation(
+                          page: const CosmeticWithoutSurgeryView(),
+                        ),
+                      );
                     },
                   ),
                 ),
                 Button(
                   text: 'Cosmetic Surgeries For Men',
                   onPressed: () {
-                    TabBarCubit.get(context).changeIndex(10);
+                    Navigator.of(context).push(
+                      RouteAnimation(
+                        page: const SurgeriesForMenView(),
+                      ),
+                    );
                   },
                 ),
                 Padding(
@@ -114,7 +138,11 @@ class HomeView extends StatelessWidget {
                   child: Button(
                       text: 'Body Cosmetic Surgeries',
                       onPressed: () {
-                        TabBarCubit.get(context).changeIndex(11);
+                        Navigator.of(context).push(
+                          RouteAnimation(
+                            page: const BodyCosmeticSurgeriesView(),
+                          ),
+                        );
                       }),
                 ),
                 Padding(
@@ -137,7 +165,8 @@ class HomeView extends StatelessWidget {
                 Button(
                   text: 'About Doctor',
                   onPressed: () {
-                    TabBarCubit.get(context).changeIndex(4);
+                    Navigator.of(context)
+                        .push(RouteAnimation(page: const DoctorInfoView()));
                   },
                 ),
                 Padding(
@@ -152,7 +181,8 @@ class HomeView extends StatelessWidget {
                 Button(
                   text: 'Al Jamila Hospital',
                   onPressed: () {
-                    TabBarCubit.get(context).changeIndex(5);
+                    Navigator.of(context)
+                        .push(RouteAnimation(page: const HospitalView()));
                   },
                 ),
                 Padding(

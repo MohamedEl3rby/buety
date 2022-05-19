@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../constants/constant.dart';
 import '../constants/images_paths.dart';
+import '../widgets/header_image_for_tabbar_items.dart';
 
 class HospitalView extends StatelessWidget {
   const HospitalView({Key? key}) : super(key: key);
@@ -19,11 +20,12 @@ class HospitalView extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Image.asset(
-                AssetPath.hopstialImage,
-                height: MediaQuery.of(context).size.height * .4,
-                width: MediaQuery.of(context).size.width,
-              ),
+              headerImageForInnerItems(AssetPath.hopstialImage, context),
+              // Image.asset(
+              //   AssetPath.hopstialImage,
+              //   height: MediaQuery.of(context).size.height * .4,
+              //   width: MediaQuery.of(context).size.width,
+              // ),
               const Padding(
                 padding: EdgeInsets.all(paddingValue),
                 child: Text(
