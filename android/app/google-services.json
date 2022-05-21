@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "797978337686",
+    "project_id": "prof-hossam-abolatta",
+    "storage_bucket": "prof-hossam-abolatta.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:797978337686:android:dcf6dca35b53b17f44bdb7",
+        "android_client_info": {
+          "package_name": "com.developer.profhossamabolAtta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "797978337686-cs1h7mifhm9a0gtu9nvnu2kccjsha4j0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWM9M5zZlM708JYkRgYWK1HW5cTG56Az8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "797978337686-cs1h7mifhm9a0gtu9nvnu2kccjsha4j0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

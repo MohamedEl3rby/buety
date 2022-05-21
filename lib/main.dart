@@ -1,19 +1,39 @@
 import 'package:bueaty/cubits/tabbar_cubit.dart';
+import 'package:bueaty/firebase_options.dart';
+import 'package:bueaty/shared/init_shared.dart';
 import 'package:bueaty/views/splash_view.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() {
+import 'cubits/notification_cubit.dart';
+
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  FirebaseMessaging messaging = FirebaseMessaging.instance;
+  FirebaseDatabase database = FirebaseDatabase.instance;
+  await configigration(messaging, database);
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.black,
       statusBarIconBrightness: Brightness.light // status bar color
       ));
-
   runApp(
-    BlocProvider(
-      create: (BuildContext context) => TabBarCubit(),
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (BuildContext context) => TabBarCubit(),
+        ),
+        BlocProvider(
+          create: (BuildContext context) =>
+              NotificationCubit()..listenToNotifications(),
+        ),
+      ],
       child: const MyApp(),
     ),
   );

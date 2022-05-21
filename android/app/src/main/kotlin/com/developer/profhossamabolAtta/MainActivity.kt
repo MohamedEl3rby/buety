@@ -1,4 +1,4 @@
-package com.example.bueaty
+package com.developer.profhossamabolAtta
 
 import io.flutter.embedding.android.FlutterActivity
 

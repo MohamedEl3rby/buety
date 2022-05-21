@@ -6,6 +6,7 @@ import '../views/body_cosmetic_surgeries_view.dart';
 import '../views/cosmetic_without_surgery_view.dart';
 import '../views/genital_cosmetic_surgery_view.dart';
 import '../views/nose_cosmetic_surgeriesView.dart';
+import '../views/notification_view.dart';
 import '../views/surgeries_for_men_view.dart';
 
 Widget drawerWidget(BuildContext context) => Drawer(
@@ -83,7 +84,11 @@ Widget drawerWidget(BuildContext context) => Drawer(
                 ),
               );
             },
-          )
+          ),
+          myListTitle('Notifications', () {
+            Navigator.of(context)
+                .push(RouteAnimation(page: const NotificationView()));
+          })
         ],
       ),
     );
