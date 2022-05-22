@@ -24,10 +24,10 @@ Widget tabBarBodyWidget(int currentIndex) {
       }
     case 2:
       {
-        return const OurCentersView();
+        return OurCentersView();
       }
     case 3:
-      return const ContactUsView();
+      return ContactUsView();
     case 4:
       {
         return const DoctorInfoView();

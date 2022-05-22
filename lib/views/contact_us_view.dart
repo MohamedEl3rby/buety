@@ -1,16 +1,21 @@
 import 'package:bueaty/cubits/tabbar_cubit.dart';
 import 'package:bueaty/widgets/my_text_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../constants/buttons.dart';
 import '../constants/constant.dart';
 import '../constants/images_paths.dart';
 
 class ContactUsView extends StatelessWidget {
-  const ContactUsView({
+  ContactUsView({
     Key? key,
   }) : super(key: key);
-
+  TextEditingController fullName = TextEditingController();
+  TextEditingController email = TextEditingController();
+  TextEditingController phoneNumber = TextEditingController();
+  TextEditingController subject = TextEditingController();
+  TextEditingController message = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -106,29 +111,47 @@ class ContactUsView extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 20),
-              const TextF(hint: 'Full Name'),
-              const TextF(hint: 'Phone Number'),
-              const TextF(hint: 'Email Address'),
-              const TextF(hint: 'Subject'),
-              Padding(
-                padding:
-                    const EdgeInsets.only(right: 25.0, left: 25, bottom: 15.0),
-                child: Container(
-                  height: MediaQuery.of(context).size.height * .3,
-                  decoration: BoxDecoration(
-                    border: Border.all(color: Colors.grey),
-                  ),
-                  child: const Padding(
-                    padding: EdgeInsets.only(left: 15.0),
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: "Message",
-                        border: InputBorder.none,
-                      ),
-                    ),
-                  ),
-                ),
+              TextF(
+                  hint: 'Full Name',
+                  textEditingController: fullName,
+                  isMessage: false),
+              TextF(
+                  hint: 'Phone Number',
+                  textEditingController: phoneNumber,
+                  isMessage: false),
+              TextF(
+                  hint: 'Email Address',
+                  textEditingController: email,
+                  isMessage: false),
+              TextF(
+                  hint: 'Subject',
+                  textEditingController: subject,
+                  isMessage: false),
+              TextF(
+                hint: 'Message',
+                textEditingController: message,
+                isMessage: true,
               ),
+              // Padding(
+              //   padding:
+              //       const EdgeInsets.only(right: 25.0, left: 25, bottom: 15.0),
+              //   child: Container(
+              //     height: MediaQuery.of(context).size.height * .3,
+              //     decoration: BoxDecoration(
+              //       border: Border.all(color: Colors.grey),
+              //     ),
+              //     child: Padding(
+              //       padding: const EdgeInsets.only(left: 15.0),
+              //       child: TextField(
+              //         decoration: const InputDecoration(
+              //           hintText: "Message",
+              //           border: InputBorder.none,
+              //         ),
+              //         controller: message,
+              //       ),
+              //     ),
+              //   ),
+              // ),
               Padding(
                 padding: const EdgeInsets.all(paddingValue),
                 child: Container(
@@ -143,7 +166,13 @@ class ContactUsView extends StatelessWidget {
                       primary: Colors.white,
                       textStyle: const TextStyle(fontSize: 16),
                     ),
-                    onPressed: () {},
+                    onPressed: () async {
+                      String _url =
+                          'mailto:dr@drhossam.com?subject=${subject.text}&body=${'Info:FullName: ${fullName.text}\n PhoneNumber: ${phoneNumber.text}\n'}';
+                      if (!await launchUrl(Uri.parse(_url))) {
+                        throw 'Could not launch $_url';
+                      }
+                    },
                     child: const Text("Submit"),
                   ),
                 ),

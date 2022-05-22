@@ -62,7 +62,14 @@ class Button extends StatelessWidget {
 
 class TextF extends StatelessWidget {
   final String hint;
-  const TextF({Key? key, required this.hint}) : super(key: key);
+  bool isMessage;
+  final TextEditingController textEditingController;
+  TextF({
+    Key? key,
+    required this.hint,
+    required this.isMessage,
+    required this.textEditingController,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -74,11 +81,12 @@ class TextF extends StatelessWidget {
         ),
         child: Padding(
           padding: const EdgeInsets.only(left: 15.0),
-          child: TextField(
+          child: TextFormField(
             decoration: InputDecoration(
               hintText: hint,
               border: InputBorder.none,
             ),
+            maxLines: isMessage ? 10 : 1,
           ),
         ),
       ),
